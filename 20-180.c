@@ -4,8 +4,6 @@ int main(int argc, char **argv )
 {
   char str[1000];
   int img[1024][768];
-  int img[1024][768];
-  int img[20000][20000];
   int w,h;
   int d;
   int x,y;
@@ -31,11 +29,10 @@ int main(int argc, char **argv )
     }
   }
 
-  fprintf (fp2,"%s\n%d %d\n%d\n", str, h, w, d);
-  for(y=0;y<w;y++){
-    for(x=0;x<h;x++){
-      fprintf(fp2, "%d ", img[w-y-1][x]); //270
-      //fprintf(fp2, "%d ", img[y][h-x-1]); //90
+  fprintf (fp2,"%s\n%d %d\n%d\n", str, w, h, d);
+  for(y=0;y<h;y++){
+    for(x=0;x<w;x++){
+      fprintf(fp2, "%d ", img[w-x-1][h-y-1]); //180
     }
     fprintf(fp2,"\n");
   }
