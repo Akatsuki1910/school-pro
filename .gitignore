@@ -1,3 +1,5 @@
 pgm
 *.out
 *.pgm
+Main.java
+Main.class
