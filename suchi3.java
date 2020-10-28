@@ -9,6 +9,7 @@ public class Main{
 		double syoki[] = {1,1,1};
 
 		for(int i=0;i<30;i++){
+			double h = 0;
 			for(int l=0;l<syoki.length;l++){
 				double p = 0;
 				for(int m=0;m<syoki.length;m++){
@@ -17,8 +18,13 @@ public class Main{
 					}
 					p+=arr[l][m]*syoki[l];
 				}
-				syoki[l] = (arr[l][arr[l].length-1]-p)/arr[l][l];
+				h = (arr[l][arr[l].length-1]-p)/arr[l][l];
 			}
+			if(Math.abs(syoki[l] - h)<0.0001){
+				syoki[l] = h;
+				break;
+			}
+			syoki[l] = h;
 		}
 
 		for (double k: syoki){
